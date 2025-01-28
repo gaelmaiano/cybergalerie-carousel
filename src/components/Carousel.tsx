@@ -3,9 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const featured = [
-  { id: 1, title: "Featured Work 1", image: "https://source.unsplash.com/random/1200x600?cyberpunk" },
-  { id: 2, title: "Featured Work 2", image: "https://source.unsplash.com/random/1200x600?neon" },
-  { id: 3, title: "Featured Work 3", image: "https://source.unsplash.com/random/1200x600?future" },
+  { id: 1, title: "Digital Dreams", image: "/lovable-uploads/c027e072-0a61-45be-bf09-8311aaace468.png" },
+  { id: 2, title: "Neon Warrior", image: "/lovable-uploads/97c9edd8-1494-4300-8201-298c1f3f04f9.png" },
+  { id: 3, title: "Dark Vision", image: "/lovable-uploads/11912b22-e539-4d54-bc87-9d0fe4377a7f.png" },
+  { id: 4, title: "Neural Portrait", image: "/lovable-uploads/81d448be-03d9-40f1-af12-c7b9bd5a3c37.png" },
 ];
 
 export const Carousel = () => {
@@ -36,7 +37,7 @@ export const Carousel = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-cyberpunk-dark to-transparent opacity-60" />
       
       <div className="absolute inset-x-0 bottom-0 p-8">
-        <h3 className="text-white text-3xl font-bold mb-4">{featured[current].title}</h3>
+        <h3 className="text-white text-3xl font-bold mb-4 animate-glow">{featured[current].title}</h3>
       </div>
 
       <button
