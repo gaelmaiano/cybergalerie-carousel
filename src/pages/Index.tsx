@@ -1,6 +1,7 @@
 import { Hero } from "../components/Hero";
 import { Gallery } from "../components/Gallery";
 import { Carousel } from "../components/Carousel";
+import { ContactForm } from "../components/ContactForm";
 
 const Index = () => {
   return (
@@ -8,6 +9,7 @@ const Index = () => {
       <Hero />
       <Carousel />
       <Gallery />
+      <ContactForm />
     </div>
   );
 };
