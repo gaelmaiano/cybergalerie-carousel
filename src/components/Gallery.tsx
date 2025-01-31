@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 const artworks = [
   { id: 1, title: "Digital Dreams", image: "/lovable-uploads/c027e072-0a61-45be-bf09-8311aaace468.png" },
@@ -18,22 +19,37 @@ export const Gallery = () => {
       <h2 className="text-4xl font-bold text-center text-white mb-12 animate-glow">Gallery</h2>
       <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {artworks.map((artwork) => (
-          <motion.div
-            key={artwork.id}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            className="relative group overflow-hidden rounded-lg"
-          >
-            <img
-              src={artwork.image}
-              alt={artwork.title}
-              className="w-full h-[300px] object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-cyberpunk-dark to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-6">
-              <h3 className="text-white text-xl font-bold">{artwork.title}</h3>
-            </div>
-          </motion.div>
+          <Dialog key={artwork.id}>
+            <DialogTrigger asChild>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                className="relative group overflow-hidden rounded-lg cursor-pointer"
+              >
+                <img
+                  src={artwork.image}
+                  alt={artwork.title}
+                  className="w-full h-[300px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-cyberpunk-dark to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-6">
+                  <h3 className="text-white text-xl font-bold">{artwork.title}</h3>
+                </div>
+              </motion.div>
+            </DialogTrigger>
+            <DialogContent className="max-w-[90vw] max-h-[90vh] p-0 bg-cyberpunk-dark border-cyberpunk-neon">
+              <div className="relative w-full h-full flex items-center justify-center">
+                <img
+                  src={artwork.image}
+                  alt={artwork.title}
+                  className="w-full h-full object-contain"
+                />
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-cyberpunk-dark to-transparent">
+                  <h3 className="text-white text-xl font-bold text-center">{artwork.title}</h3>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
         ))}
       </div>
     </div>
